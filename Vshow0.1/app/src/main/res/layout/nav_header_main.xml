@@ -27,9 +27,9 @@
         android:layout_gravity="center_horizontal"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:paddingBottom="@dimen/nav_header_vertical_spacing"
-        android:src="@drawable/ic_login" />
+        android:src="@drawable/icon_login" />
 
-    <com.victoria.vshow.view.LightningView
+    <com.victoria.vshow.widget.LightningView
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:gravity="center|center_horizontal|center_vertical"
@@ -37,6 +37,7 @@
         android:layout_alignParentBottom="true"
         android:text="@string/nav_header_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:clickable="true"
         android:background="@drawable/button_shape"
         />
 </LinearLayout>

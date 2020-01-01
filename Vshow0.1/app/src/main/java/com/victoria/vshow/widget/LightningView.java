@@ -18,7 +18,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 /**
  * 用于展示带闪光的button
- * @author Victoria Colone
+ * @author Victoria
  */
 public class LightningView extends AppCompatTextView {
 
@@ -79,7 +79,7 @@ public class LightningView extends AppCompatTextView {
             mViewWidth = getWidth();
             mViewHeight = getHeight();
             if (mViewWidth > 0) {
-                //亮光闪过
+                //亮光样式
                 mGradient = new LinearGradient(0, 0, mViewWidth / 2, mViewHeight,
                         new int[]{0x00ffffff, 0x70ffffff, 0x00ffffff},
                         new float[]{0, 0.5f, 1},
@@ -111,12 +111,11 @@ public class LightningView extends AppCompatTextView {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 float v = (Float) animation.getAnimatedValue();
-                // 改变每次动画的平移x、y值，范围是[-2mViewWidth, 2mViewWidth]
-                mTranslateX = 3 * mViewWidth * v - mViewWidth * 2;
-                mTranslateY = mViewHeight * v;
+                // 改变每次动画的平移x值，范围是[-0.5mViewWidth, 0.5mViewWidth]
+                mTranslateX = 2 * mViewWidth * v - mViewWidth /2;
                 // 平移matrix, 设置平移量
                 if (mGradientMatrix != null) {
-                    mGradientMatrix.setTranslate(mTranslateX, mTranslateY);
+                    mGradientMatrix.setTranslate(mTranslateX, 0);
                 }
                 // 设置线性变化的matrix
                 if (mGradient != null) {

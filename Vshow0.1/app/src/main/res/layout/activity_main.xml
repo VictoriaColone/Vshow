@@ -126,6 +126,24 @@
 <!--                android:textStyle="bold"-->
 <!--                />-->
 <!--        </LinearLayout>-->
+        <com.victoria.vshow.view.FloatBall
+            android:id="@+id/float_imgview"
+            android:layout_width="@dimen/dimens_54dp"
+            android:layout_height="@dimen/dimens_54dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/dimens_85dp"
+            android:clickable="true"
+           />
+
+        <ImageView
+            android:id="@+id/earth_frame"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="@dimen/dimens_85dp"
+            />
     </RelativeLayout>
 
 
@@ -146,7 +164,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="left"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/menu_drawer_left" />
+        app:menu="@menu/menu_drawer_left" />z
 
 <!--    可用于扩展拍摄功能-->
 <!--    <include-->

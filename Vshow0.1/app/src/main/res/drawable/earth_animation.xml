@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot = "false">
+
+    <item android:drawable="@drawable/earth1" android:duration="100"/>
+    <item android:drawable="@drawable/earth2" android:duration="100"/>
+    <item android:drawable="@drawable/earth3" android:duration="100"/>
+    <item android:drawable="@drawable/earth4" android:duration="100"/>
+    <item android:drawable="@drawable/earth5" android:duration="100"/>
+    <item android:drawable="@drawable/earth6" android:duration="100"/>
+    <item android:drawable="@drawable/earth7" android:duration="100"/>
+    <item android:drawable="@drawable/earth8" android:duration="100"/>
+    <item android:drawable="@drawable/earth9" android:duration="100"/>
+    <item android:drawable="@drawable/earth10" android:duration="100"/>
+    <item android:drawable="@drawable/earth11" android:duration="100"/>
+    <item android:drawable="@drawable/earth12" android:duration="100"/>
+    <item android:drawable="@drawable/earth13" android:duration="100"/>
+    <item android:drawable="@drawable/earth14" android:duration="100"/>
+    <item android:drawable="@drawable/earth15" android:duration="100"/>
+    <item android:drawable="@drawable/earth16" android:duration="100"/>
+    <item android:drawable="@drawable/earth17" android:duration="100"/>
+    <item android:drawable="@drawable/earth18" android:duration="100"/>
+    <item android:drawable="@drawable/earth19" android:duration="100"/>
+    <item android:drawable="@drawable/earth20" android:duration="100"/>
+    <item android:drawable="@drawable/earth21" android:duration="100"/>
+    <item android:drawable="@drawable/earth22" android:duration="100"/>
+    <item android:drawable="@drawable/earth23" android:duration="100"/>
+    <item android:drawable="@drawable/earth24" android:duration="100"/>
+    <item android:drawable="@drawable/earth25" android:duration="100"/>
+    <item android:drawable="@drawable/earth26" android:duration="100"/>
+    <item android:drawable="@drawable/earth27" android:duration="100"/>
+    <item android:drawable="@drawable/earth28" android:duration="100"/>
+    <item android:drawable="@drawable/earth29" android:duration="100"/>
+    <item android:drawable="@drawable/earth30" android:duration="100"/>
+    <item android:drawable="@drawable/earth31" android:duration="100"/>
+    <item android:drawable="@drawable/earth32" android:duration="100"/>
+    <item android:drawable="@drawable/earth33" android:duration="100"/>
+    <item android:drawable="@drawable/earth34" android:duration="100"/>
+    <item android:drawable="@drawable/earth35" android:duration="100"/>
+    <item android:drawable="@drawable/earth36" android:duration="100"/>
+    <item android:drawable="@drawable/earth37" android:duration="100"/>
+    <item android:drawable="@drawable/earth38" android:duration="100"/>
+    <item android:drawable="@drawable/earth39" android:duration="100"/>
+    <item android:drawable="@drawable/earth40" android:duration="100"/>
+    <item android:drawable="@drawable/earth41" android:duration="100"/>
+    <item android:drawable="@drawable/earth42" android:duration="100"/>
+    <item android:drawable="@drawable/earth43" android:duration="100"/>
+    <item android:drawable="@drawable/earth44" android:duration="100"/>
+
+</animation-list>
