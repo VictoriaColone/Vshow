@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Vshow</string>
+    <string name="starting">Vshow</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_gallery">相册</string>
+    <string name="menu_setting">设置</string>
+    <string name="nav_header_title">Log in with WeChat</string>
+    <string name="welcome">Welcome to Vshow</string>
+    <string name="tab_text_1">推荐</string>
+    <string name="tab_text_2">发现</string>
+</resources>
