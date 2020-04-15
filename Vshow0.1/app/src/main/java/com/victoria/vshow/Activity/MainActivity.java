@@ -1,5 +1,6 @@
 package com.victoria.vshow.Activity;
 
+import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
@@ -9,21 +10,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.victoria.vshow.R;
 import com.victoria.vshow.viewpager.OnViewPagerListener;
 import com.victoria.vshow.viewpager.ViewPagerLayoutManager;
 
-import androidx.annotation.ColorInt;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 /**
  * @author Victoria Colone
@@ -34,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private MyAdapter mAdapter;
     private ViewPagerLayoutManager mLayoutManager;
+    //下拉刷新
+    private SwipeRefreshLayout swipeRefresh;
 
     // 图片，视频流资源
     private int[] imgs = {R.mipmap.img_video_1, R.mipmap.img_video_2};
@@ -41,10 +41,20 @@ public class MainActivity extends AppCompatActivity {
 
     private RadioGroup rg_main;
 
+
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        swipeRefresh = findViewById(R.id.swipeRefresh);
+        //设置颜色
+        swipeRefresh.setColorSchemeColors(R.color.qmui_btn_blue_bg);
+        rg_main = findViewById(R.id.rg_main);
+        rg_main.check(R.id.main_for_show);
+        mRecyclerView = findViewById(R.id.recycler);
 
         initView();
         initListener();
@@ -68,9 +78,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
 
-        rg_main = findViewById(R.id.rg_main);
-        rg_main.check(R.id.main_for_show);
-        mRecyclerView = findViewById(R.id.recycler);
         mLayoutManager = new ViewPagerLayoutManager(this, OrientationHelper.VERTICAL);
         mAdapter = new MyAdapter();
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -92,12 +99,15 @@ public class MainActivity extends AppCompatActivity {
             public void onPageRelease(boolean isNext, int position) {
                 Log.e(TAG, "释放位置:" + position + " 下一页:" + isNext);
                 int index = 0;
-                if (isNext) {
-                    index = 0;
-                } else {
-                    index = 1;
+
+                if(position != 0 || isNext) {
+                    if (isNext) {
+                        index = 0;
+                    } else {
+                        index = 1;
+                    }
+                    releaseVideo(index);
                 }
-                releaseVideo(index);
             }
 
             @Override
@@ -107,9 +117,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //下拉刷新监听
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 
+            @Override
+            public void onRefresh() {
+                //开启异步线程
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        imgs = new int[]{R.mipmap.img_video_2, R.mipmap.img_video_1};
+                        videos = new int[]{R.raw.video_2, R.raw.video_1};
+                        //run中异步更新UI线程
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                initView();
+                            }
+                        });
+                    }
+                }).start();
+
+            }
+        });
 
     }
+
 
     //播放视频
     private void playVideo(int position) {
@@ -157,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //
+    //释放播放
     private void releaseVideo(int index) {
         View itemView = mRecyclerView.getChildAt(index);
         final VideoView videoView = itemView.findViewById(R.id.video_view);
@@ -175,6 +208,25 @@ public class MainActivity extends AppCompatActivity {
         public MyAdapter() {
         }
 
+       //视频对象类
+       public class ViewHolder extends RecyclerView.ViewHolder {
+           ImageView img_thumb;
+           VideoView videoView;
+           ImageView img_play;
+           RelativeLayout rootView;
+
+           public ViewHolder(View itemView) {
+               super(itemView);
+               //视频布局
+               img_thumb = itemView.findViewById(R.id.img_thumb);
+               //视频播放布局
+               videoView = itemView.findViewById(R.id.video_view);
+               //视频播放暂停按钮
+               img_play = itemView.findViewById(R.id.img_play);
+               //RecyclerView根布局
+               rootView = itemView.findViewById(R.id.root_view);
+           }
+       }
 
         //布局填充
         @Override
@@ -196,21 +248,6 @@ public class MainActivity extends AppCompatActivity {
             return 20;
         }
 
-        //视频对象类
-        public class ViewHolder extends RecyclerView.ViewHolder {
-            ImageView img_thumb;
-            VideoView videoView;
-            ImageView img_play;
-            RelativeLayout rootView;
-
-            public ViewHolder(View itemView) {
-                super(itemView);
-                img_thumb = itemView.findViewById(R.id.img_thumb);
-                videoView = itemView.findViewById(R.id.video_view);
-                img_play = itemView.findViewById(R.id.img_play);
-                rootView = itemView.findViewById(R.id.root_view);
-            }
-        }
     }
 }
 
