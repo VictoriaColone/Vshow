@@ -3,6 +3,9 @@ package com.victoria.vshow.utils;
 import java.util.Formatter;
 import java.util.Locale;
 
+/**
+ * @author Victor Corleone
+ */
 public  class Utils {
 
 	private StringBuilder mFormatBuilder;

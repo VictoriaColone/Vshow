@@ -1,12 +1,10 @@
 package com.victoria.vshow.viewpager;
 
 /**
- * Created by abc
- * abc
- * abc
+ * @author Victor Corleone
+ *
  * 用于ViewPagerLayoutManager的监听
  */
-
 public interface OnViewPagerListener {
 
     /*初始化完成*/

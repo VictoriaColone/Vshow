@@ -1,10 +1,12 @@
 package com.victoria.vshow.Activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.VideoView;
 
+import com.victoria.vshow.Adapter.VideoAdapter;
 import com.victoria.vshow.R;
 import com.victoria.vshow.viewpager.OnViewPagerListener;
 import com.victoria.vshow.viewpager.ViewPagerLayoutManager;
@@ -24,38 +27,30 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 /**
- * @author Victoria Colone
+ * @author Victoria Corleone
  */
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    private String PACKAGE_NAME = this.getPackageName();
     private RecyclerView mRecyclerView;
-    private MyAdapter mAdapter;
+    private VideoAdapter mVideoAdapter;
     private ViewPagerLayoutManager mLayoutManager;
     //下拉刷新
     private SwipeRefreshLayout swipeRefresh;
-
-    // 图片，视频流资源
-    private int[] imgs = {R.mipmap.img_video_1, R.mipmap.img_video_2};
-    private int[] videos = {R.raw.video_1, R.raw.video_2};
-
     private RadioGroup rg_main;
-
 
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         swipeRefresh = findViewById(R.id.swipeRefresh);
         //设置颜色
         swipeRefresh.setColorSchemeColors(R.color.qmui_btn_blue_bg);
         rg_main = findViewById(R.id.rg_main);
         rg_main.check(R.id.main_for_show);
         mRecyclerView = findViewById(R.id.recycler);
-
         initView();
         initListener();
     }
@@ -79,9 +74,9 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
 
         mLayoutManager = new ViewPagerLayoutManager(this, OrientationHelper.VERTICAL);
-        mAdapter = new MyAdapter();
+        mVideoAdapter = new VideoAdapter();
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mVideoAdapter);
     }
 
     private void initListener() {
@@ -119,28 +114,45 @@ public class MainActivity extends AppCompatActivity {
 
         //下拉刷新监听
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-
             @Override
             public void onRefresh() {
-                //开启异步线程
-                new Thread(new Runnable() {
+                new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        imgs = new int[]{R.mipmap.img_video_2, R.mipmap.img_video_1};
-                        videos = new int[]{R.raw.video_2, R.raw.video_1};
-                        //run中异步更新UI线程
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                initView();
-                            }
-                        });
+                        swipeRefresh.setRefreshing(false);
+                        //颠倒视频流
+                        mVideoAdapter.imgs = new int[]{R.mipmap.img_video_2, R.mipmap.img_video_1};
+                        mVideoAdapter.videos = new int[]{R.raw.video_2, R.raw.video_1};
+                        //更新视频流
+                        mVideoAdapter.notifyDataSetChanged();
                     }
-                }).start();
-
+                },2000);
             }
         });
 
+        //forYou forShow监听
+        rg_main.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId){
+                    //for Show
+                    case R.id.main_for_show:
+                        //颠倒视频流
+                        mVideoAdapter.imgs = new int[]{R.mipmap.img_video_2, R.mipmap.img_video_1};
+                        mVideoAdapter.videos = new int[]{R.raw.video_2, R.raw.video_1};
+                        //更新视频流
+                        mVideoAdapter.notifyDataSetChanged();
+                        break;
+                    case R.id.main_for_you:
+                        //颠倒视频流
+                        mVideoAdapter.imgs = new int[]{R.mipmap.img_video_1, R.mipmap.img_video_2};
+                        mVideoAdapter.videos = new int[]{R.raw.video_1, R.raw.video_2};
+                        //更新视频流
+                        mVideoAdapter.notifyDataSetChanged();
+                        break;
+                }
+            }
+        });
     }
 
 
@@ -201,53 +213,5 @@ public class MainActivity extends AppCompatActivity {
         imgPlay.animate().alpha(0f).start();
     }
 
-
-   class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-
-
-        public MyAdapter() {
-        }
-
-       //视频对象类
-       public class ViewHolder extends RecyclerView.ViewHolder {
-           ImageView img_thumb;
-           VideoView videoView;
-           ImageView img_play;
-           RelativeLayout rootView;
-
-           public ViewHolder(View itemView) {
-               super(itemView);
-               //视频布局
-               img_thumb = itemView.findViewById(R.id.img_thumb);
-               //视频播放布局
-               videoView = itemView.findViewById(R.id.video_view);
-               //视频播放暂停按钮
-               img_play = itemView.findViewById(R.id.img_play);
-               //RecyclerView根布局
-               rootView = itemView.findViewById(R.id.root_view);
-           }
-       }
-
-        //布局填充
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_pager, parent, false);
-            return new ViewHolder(view);
-        }
-
-        //解析图片与视频资源
-        @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-            holder.img_thumb.setImageResource(imgs[position % 2]);
-            holder.videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + videos[position % 2]));
-        }
-
-        //项目总数
-        @Override
-        public int getItemCount() {
-            return 20;
-        }
-
-    }
 }
 

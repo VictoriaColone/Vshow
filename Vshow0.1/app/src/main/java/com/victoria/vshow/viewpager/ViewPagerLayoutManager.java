@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
- * @author Victoria Colone
+ * @author Victor Corleone
  */
 
 public class ViewPagerLayoutManager extends LinearLayoutManager {
@@ -37,6 +37,7 @@ public class ViewPagerLayoutManager extends LinearLayoutManager {
     @Override
     public void onAttachedToWindow(RecyclerView view) {
         super.onAttachedToWindow(view);
+        view.setOnFlingListener(null);
         mPagerSnapHelper.attachToRecyclerView(view);
         this.mRecyclerView = view;
         mRecyclerView.addOnChildAttachStateChangeListener(mChildAttachStateChangeListener);

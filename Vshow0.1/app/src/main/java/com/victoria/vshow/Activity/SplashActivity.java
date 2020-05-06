@@ -11,9 +11,12 @@ import android.view.WindowManager;
 
 import com.victoria.vshow.R;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+
 
 /**
- * @author Victoria Colone
+ * @author Victor Corleone
  */
 public class SplashActivity extends Activity {
 
@@ -23,7 +26,6 @@ public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         //无title
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         //全屏
