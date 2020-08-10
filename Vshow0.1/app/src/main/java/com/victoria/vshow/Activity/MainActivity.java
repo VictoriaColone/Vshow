@@ -32,7 +32,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    private String PACKAGE_NAME = this.getPackageName();
     private RecyclerView mRecyclerView;
     private VideoAdapter mVideoAdapter;
     private ViewPagerLayoutManager mLayoutManager;

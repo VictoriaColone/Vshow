@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
  * 视频对象类
  */
 public class VideoViewHolder extends RecyclerView.ViewHolder {
+    // 视频布局
     public ImageView img_thumb;
+    // 视频播放布局
     public VideoView videoView;
     public ImageView img_play;
     public RelativeLayout rootView;
