@@ -1,7 +1,4 @@
-/*
- * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
- */
-package com.victoria.vshow.view;
+package com.victoria.vshow.widget;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -21,8 +18,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 /**
  * 用于展示带闪光的button
- * @author yutao12
- * @since 2020-08-06
+ * @author Victoria Colone
  */
 public class LightningView extends AppCompatTextView {
 
