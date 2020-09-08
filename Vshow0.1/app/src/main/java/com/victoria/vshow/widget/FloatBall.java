@@ -10,25 +10,13 @@ import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 /**
- * 一个在页面内可自由拖动的视图，使用者可处理视图点击操作。
- * 需要注意视图拖拽不能超过状态栏的位置，前提是基于activity非全屏。
  *
  * @author yutao12
- * @version v12
- * @since 2020/08/17
  */
 public class FloatBall extends SimpleDraweeView {
 
     /** 吸附动画时间300ms */
     public static final int ANIMATION_TIME = 300;
-    /** 新游戏中心scheme，端上写死 */
-    private static final String NEW_GAME_CENTER_SCHEME = "baiduboxapp://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00" +
-            "/pages/" +
-            "home/" +
-            "index?" +
-            "_baiduboxapp=%7B%22from%22%3A%221241009500000000%22%2C%22ext%22%3A%7B%7D%7D";
-    /** 下发的scheme */
-    private String mScheme = NEW_GAME_CENTER_SCHEME;
 
     /**
      * 构造器

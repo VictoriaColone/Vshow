@@ -1,26 +1,20 @@
 package com.victoria.vshow.Activity;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.VideoView;
-
 import com.victoria.vshow.Adapter.VideoAdapter;
 import com.victoria.vshow.R;
 import com.victoria.vshow.viewpager.OnViewPagerListener;
 import com.victoria.vshow.viewpager.ViewPagerLayoutManager;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -152,8 +146,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-    }
 
+    }
 
     //播放视频
     private void playVideo(int position) {

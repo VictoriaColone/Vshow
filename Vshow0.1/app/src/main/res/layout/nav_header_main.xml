@@ -29,7 +29,7 @@
         android:paddingBottom="@dimen/nav_header_vertical_spacing"
         android:src="@drawable/ic_login" />
 
-    <com.victoria.vshow.view.LightningView
+    <com.victoria.vshow.widget.LightningView
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:gravity="center|center_horizontal|center_vertical"
@@ -38,5 +38,6 @@
         android:text="@string/nav_header_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:background="@drawable/button_shape"
+        android:clickable="true"
         />
 </LinearLayout>
