@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
- */
 package com.victoria.vshow;
 
 import android.app.Application;
