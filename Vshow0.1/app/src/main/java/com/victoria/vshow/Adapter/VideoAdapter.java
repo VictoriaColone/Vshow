@@ -1,12 +1,9 @@
 package com.victoria.vshow.Adapter;
 
-import android.content.Context;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.victoria.vshow.Activity.MainActivity;
 import com.victoria.vshow.BuildConfig;
 import com.victoria.vshow.R;
 import com.victoria.vshow.ViewHolder.VideoViewHolder;

@@ -39,5 +39,6 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:clickable="true"
         android:background="@drawable/button_shape"
+        android:clickable="true"
         />
 </LinearLayout>

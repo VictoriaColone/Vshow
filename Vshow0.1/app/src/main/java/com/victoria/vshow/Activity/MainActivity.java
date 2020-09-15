@@ -188,11 +188,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     /**
      * 播放视频
      * @param position
      */
+    //播放视频
     private void playVideo(int position) {
         View itemView = mRecyclerView.getChildAt(0);
         final VideoView videoView = itemView.findViewById(R.id.video_view);
