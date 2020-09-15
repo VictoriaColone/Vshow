@@ -22,6 +22,7 @@ import android.widget.Toast;
 import android.widget.VideoView;
 import com.victoria.vshow.Adapter.VideoAdapter;
 import com.victoria.vshow.R;
+import com.victoria.vshow.view.CloseDialog;
 import com.victoria.vshow.view.FloatBall;
 import com.victoria.vshow.viewpager.OnViewPagerListener;
 import com.victoria.vshow.viewpager.ViewPagerLayoutManager;
@@ -316,6 +317,11 @@ public class MainActivity extends AppCompatActivity {
         earthFrame.setImageDrawable(animationDrawable);
 
         return (AnimationDrawable) earthFrame.getDrawable();
+    }
+    @Override
+    public void onBackPressed(){
+         CloseDialog mDialog = new CloseDialog(this);
+            mDialog.show();
     }
 }
 

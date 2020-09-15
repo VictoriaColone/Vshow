@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 
 public class ViewPagerLayoutManager extends LinearLayoutManager {
+
     private static final String TAG = "ViewPagerLayoutManager";
     private PagerSnapHelper mPagerSnapHelper;
     private OnViewPagerListener mOnViewPagerListener;

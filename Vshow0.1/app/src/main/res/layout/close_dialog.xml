@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/layout_main"
+        android:layout_width="@dimen/dimen_331dp"
+        android:layout_height="@dimen/dimen_224dp"
+        android:background="@drawable/close_dialog_bg"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="@string/leave_now"
+            android:textColor="#FF853D22"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:layout_marginTop="18dp"
+            android:gravity="center"
+            android:text="@string/finish_job"
+            android:textColor="#FF853D22"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="@dimen/dimen_331dp"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:layout_marginTop="9dp"
+            android:gravity="center"
+            android:text="@string/obtain_reward"
+            android:textColor="#FF853D22"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
+            >
+
+            <Button
+                android:id="@+id/exit_button"
+                android:layout_width="@dimen/dimen_130dp"
+                android:layout_height="@dimen/dimen_40dp"
+                android:background="@drawable/button_exit_shape"
+                android:clickable="true"
+                android:text="继续退出"
+                android:textColor="#FF853D22"
+                android:includeFontPadding="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+
+            <Button
+                android:id="@+id/continue_button"
+                android:layout_width="@dimen/dimen_130dp"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_continue_shape"
+                android:clickable="true"
+                android:text="再玩一会"
+                android:includeFontPadding="false"
+                android:textColor="#FF853D22"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:src="@drawable/close_icon"
+        />
+</LinearLayout>

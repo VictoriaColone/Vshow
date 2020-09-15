@@ -4,4 +4,9 @@
     <string name="menu_setting">设置</string>
     <string name="nav_header_title">Log in with WeChat</string>
     <string name="welcome">Welcome to Vshow</string>
+    <string name="tab_text_1">推荐</string>
+    <string name="tab_text_2">发现</string>
+    <string name="leave_now">现在就要离开吗？</string>
+    <string name="finish_job">完成任务</string>
+    <string name="obtain_reward">可以获取更多奖励哦~</string>
 </resources>

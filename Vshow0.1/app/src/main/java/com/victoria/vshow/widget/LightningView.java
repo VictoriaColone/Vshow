@@ -8,7 +8,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -35,7 +35,7 @@ public class LightningView extends AppCompatTextView {
     /** 自动展示 */
     private boolean mAnimating = false;
     /** 矩形对象 */
-    private Rect rect;
+    private RectF rectF;
     /** 属性动画 */
     private ValueAnimator valueAnimator;
 
@@ -57,7 +57,7 @@ public class LightningView extends AppCompatTextView {
     }
 
     private void init() {
-        rect = new Rect();
+        rectF = new RectF();
         mPaint = new Paint();
         initGradientAnimator();
     }
@@ -69,7 +69,7 @@ public class LightningView extends AppCompatTextView {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        rect.set(0, 0, getWidth(), getHeight());
+        rectF.set(0, 0, getWidth(), getHeight());
     }
 
     @Override
@@ -89,7 +89,7 @@ public class LightningView extends AppCompatTextView {
                 mGradientMatrix = new Matrix();
                 mGradientMatrix.setTranslate(0, mViewHeight);
                 mGradient.setLocalMatrix(mGradientMatrix);
-                rect.set(0, 0, w, h);
+                rectF.set(0, 0, w, h);
             }
         }
     }
@@ -98,7 +98,8 @@ public class LightningView extends AppCompatTextView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (mAnimating && mGradientMatrix != null) {
-            canvas.drawRect(rect, mPaint);
+            int radius = (int) ((20.67f)*(getContext().getResources().getDisplayMetrics().density));
+            canvas.drawRoundRect(rectF, radius, radius, mPaint);
         }
     }
 

@@ -6,12 +6,12 @@ import java.util.Locale;
 /**
  * @author Victor Corleone
  */
-public  class Utils {
+public  class TimeUtils {
 
 	private StringBuilder mFormatBuilder;
 	private Formatter mFormatter;
 
-	public Utils() {
+	public TimeUtils() {
 		// 转换成字符串的时间
 		mFormatBuilder = new StringBuilder();
 		mFormatter = new Formatter(mFormatBuilder, Locale.getDefault());
