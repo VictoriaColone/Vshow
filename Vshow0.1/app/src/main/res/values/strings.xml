@@ -9,4 +9,5 @@
     <string name="leave_now">现在就要离开吗？</string>
     <string name="finish_job">完成任务</string>
     <string name="obtain_reward">可以获取更多奖励哦~</string>
+    <string name="minigame_guide_dialog_msg">秒玩</string>
 </resources>

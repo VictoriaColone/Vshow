@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/game_guide_dialog"
+    android:layout_width="331dp"
+    android:layout_height="580dp"
+    android:layout_gravity="center"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="331dp"
+        android:layout_height="480dp"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/game_guide_bottom_bar_bg">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/game_guide_image_top"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            fresco:actualImageResource="@drawable/earth5"
+            fresco:placeholderImage="@color/game_guide_dialog_bg"
+            fresco:roundBottomLeft="false"
+            fresco:roundBottomRight="false"
+            fresco:roundTopLeft="true"
+            fresco:roundTopRight="true"
+            fresco:roundedCornerRadius="@dimen/dimen_10dp" />
+
+        <VideoView
+            android:id="@+id/game_guide_video_top"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_gravity="center"
+            android:background="@drawable/game_guide_video_bottom_bg"
+             />
+
+        <Button
+            android:id="@+id/game_guide_play_game"
+            android:layout_width="@dimen/dimen_224dp"
+            android:layout_height="34dp"
+            android:text="@string/minigame_guide_dialog_msg"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/qmui_config_color_white"
+            android:background="@drawable/button_shape" />
+
+        <LinearLayout
+            android:layout_width="331dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            >
+
+            <TextView
+                android:id="@+id/game_guide_countdown_num"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:textColor="@color/qmui_config_color_blue"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/game_guide_countdown_text"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:textSize="11sp"
+                android:textColor="@color/qmui_config_color_75_pure_black"
+                android:text="后自动打开小游戏"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/game_guide_dialog_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/dialog_new_guide_close" />
+</LinearLayout>
