@@ -41,7 +41,7 @@ public class GameGuideDialog extends Dialog {
     /** 标记位——是否需要倒计时 */
     private Boolean needCountDown = true;
 
-    private static final String s1 = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
+    private static final String s1 = "https://b.bdstatic.com/searchbox/icms/searchbox/img/351089f1-bffd-4cd7-8e08-c047beeaf940.mp4";
 
 
     /**
@@ -66,7 +66,7 @@ public class GameGuideDialog extends Dialog {
 
         mVideoView = findViewById(R.id.game_guide_video_top);
         Uri uri = Uri.parse(s1);
-        mVideoView.setVideoURI(uri);
+        mVideoView.setVideoURI(Uri.parse("https://b.bdstatic.com/searchbox/icms/searchbox/img/351089f1-bffd-4cd7-8e08-c047beeaf940.mp4"));
 
         mPlayButton = findViewById(R.id.game_guide_play_game);
         // 下发设置为不可见
@@ -95,6 +95,12 @@ public class GameGuideDialog extends Dialog {
         });
 
         mPlayButton.setOnTouchListener(alphaChange());
+        mPlayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     /**
@@ -130,7 +136,7 @@ public class GameGuideDialog extends Dialog {
         // 开始倒计时
         if (needCountDown) {
             // 倒计时
-            mCountDownTimer = new CountDownTimer(3000, 1000) {
+            mCountDownTimer = new CountDownTimer(10000, 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) {
                     mCountDownNum.setText((millisUntilFinished / 1000 + 1) + "秒");
@@ -144,6 +150,17 @@ public class GameGuideDialog extends Dialog {
             };
             mCountDownTimer.start();
         }
+        if (mVideoView != null) {
+            mVideoView.start();
+        }
+
     }
 
+    @Override
+    public void dismiss() {
+        super.dismiss();
+        if (mCountDownTimer != null) {
+            mCountDownTimer = null;
+        }
+    }
 }

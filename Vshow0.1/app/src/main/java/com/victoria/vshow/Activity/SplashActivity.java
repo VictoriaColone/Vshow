@@ -39,7 +39,7 @@ public class SplashActivity extends Activity {
             @Override
             public void run() {
                 //在主线程执行
-//                startMainActivity();
+                startMainActivity();
             }
         },2000);
     }
@@ -47,8 +47,7 @@ public class SplashActivity extends Activity {
     //设置点击后快速进去,为防止多次启动，要在manifest文件中设置为单例
     @Override
     public boolean onTouchEvent(MotionEvent event){
-//        startMainActivity();
-        new GameGuideDialog(this).show();
+        startMainActivity();
         return super.onTouchEvent(event);
     }
 

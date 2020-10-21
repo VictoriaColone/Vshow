@@ -16,25 +16,28 @@
         android:orientation="vertical"
         android:background="@drawable/game_guide_bottom_bar_bg">
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/game_guide_image_top"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            fresco:actualImageResource="@drawable/earth5"
-            fresco:placeholderImage="@color/game_guide_dialog_bg"
-            fresco:roundBottomLeft="false"
-            fresco:roundBottomRight="false"
-            fresco:roundTopLeft="true"
-            fresco:roundTopRight="true"
-            fresco:roundedCornerRadius="@dimen/dimen_10dp" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/game_guide_video_bottom_bg">
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/game_guide_image_top"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                fresco:actualImageResource="@drawable/earth5"
+                fresco:placeholderImage="@color/game_guide_dialog_bg"
+                fresco:roundBottomLeft="false"
+                fresco:roundBottomRight="false"
+                fresco:roundTopLeft="true"
+                fresco:roundTopRight="true"
+                fresco:roundedCornerRadius="@dimen/dimen_10dp" />
 
-        <VideoView
-            android:id="@+id/game_guide_video_top"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_gravity="center"
-            android:background="@drawable/game_guide_video_bottom_bg"
-             />
+            <VideoView
+                android:id="@+id/game_guide_video_top"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_gravity="center" />
+        </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/game_guide_play_game"
