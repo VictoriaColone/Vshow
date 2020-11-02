@@ -34,8 +34,6 @@ public class GameGuideDialog extends Dialog {
     private TextView mCountDownNum;
     /** 倒计时器 */
     private CountDownTimer mCountDownTimer;
-    /** 倒计时配文textview */
-    private TextView mCountDownText;
     /** 关闭退出按钮 */
     private ImageView mCloseButton;
     /** 标记位——是否需要倒计时 */
@@ -62,18 +60,14 @@ public class GameGuideDialog extends Dialog {
         setCanceledOnTouchOutside(false);
         // 设置主视图
         setContentView(R.layout.game_minigame_guide_dialog);
+        mVideoView = findViewById(R.id.game_guide_video_top);
+        mVideoView.setVisibility(View.GONE);
         mImage = findViewById(R.id.game_guide_image_top);
 
-        mVideoView = findViewById(R.id.game_guide_video_top);
-        Uri uri = Uri.parse(s1);
-        mVideoView.setVideoURI(Uri.parse("https://b.bdstatic.com/searchbox/icms/searchbox/img/351089f1-bffd-4cd7-8e08-c047beeaf940.mp4"));
-
         mPlayButton = findViewById(R.id.game_guide_play_game);
-        // 下发设置为不可见
-        mImage.setVisibility(View.GONE);
         mCountDownNum = findViewById(R.id.game_guide_countdown_num);
-        mCountDownText = findViewById(R.id.game_guide_countdown_text);
         mCloseButton = findViewById(R.id.game_guide_dialog_exit);
+        mImage.setImageURI("https://b.bdstatic.com/searchbox/icms/searchbox/img/dadacf68-fb93-4778-bf5d-4f39d6efdd21.gif");
         initListener();
 
     }
@@ -139,7 +133,7 @@ public class GameGuideDialog extends Dialog {
             mCountDownTimer = new CountDownTimer(10000, 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) {
-                    mCountDownNum.setText((millisUntilFinished / 1000 + 1) + "秒");
+                    mCountDownNum.setText((millisUntilFinished / 1000 + 1) + "秒后自动打开游戏");
                 }
 
                 @Override
@@ -154,12 +148,14 @@ public class GameGuideDialog extends Dialog {
             mVideoView.start();
         }
 
+
     }
 
     @Override
     public void dismiss() {
         super.dismiss();
         if (mCountDownTimer != null) {
+            mCountDownTimer.cancel();
             mCountDownTimer = null;
         }
     }
