@@ -17,7 +17,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoViewHolder> {
 
     // 图片，视频流资源
     public int[] imgs = {R.mipmap.img_video_2, R.mipmap.img_video_1};
-    public int[] videos = {R.raw.video_2, R.raw.video_1};
+    public int[] videos = {R.raw.video_3, R.raw.video_2, R.raw.video_1};
 
     public VideoAdapter() {
     }
@@ -32,8 +32,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoViewHolder> {
     //解析图片与视频资源
     @Override
     public void onBindViewHolder(VideoViewHolder holder, int position) {
-        holder.img_thumb.setImageResource(imgs[position % 2]);
-        holder.videoView.setVideoURI(Uri.parse("android.resource://" + BuildConfig.APPLICATION_ID + "/" + videos[position % 2]));
+//        holder.img_thumb.setImageResource(imgs[position % 2]);
+        holder.videoView.setVideoURI(Uri.parse("android.resource://" + BuildConfig.APPLICATION_ID + "/" + videos[position % 3]));
     }
 
     //项目总数

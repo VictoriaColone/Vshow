@@ -2,9 +2,7 @@ package com.victoria.vshow.view;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.net.Uri;
 import android.os.CountDownTimer;
-import android.provider.MediaStore;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -16,9 +14,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.victoria.vshow.R;
 import org.jetbrains.annotations.NotNull;
 
-
 /**
- *
  * @author yutao12
  * @since 2020-10-19
  */
@@ -38,9 +34,8 @@ public class GameGuideDialog extends Dialog {
     private ImageView mCloseButton;
     /** 标记位——是否需要倒计时 */
     private Boolean needCountDown = true;
-
+    /** 视频地址 */
     private static final String s1 = "https://b.bdstatic.com/searchbox/icms/searchbox/img/351089f1-bffd-4cd7-8e08-c047beeaf940.mp4";
-
 
     /**
      * 构造方法
@@ -76,7 +71,6 @@ public class GameGuideDialog extends Dialog {
      * 初始化监听器
      */
     private void initListener() {
-
         mCloseButton.setOnTouchListener(alphaChange());
         mCloseButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +81,6 @@ public class GameGuideDialog extends Dialog {
                 dismiss();
             }
         });
-
         mPlayButton.setOnTouchListener(alphaChange());
         mPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,7 +132,13 @@ public class GameGuideDialog extends Dialog {
                 @Override
                 public void onFinish() {
                     // 打开scheme,后端空时默认去游戏中心
-                    dismiss();
+                    try {
+                        if(isShowing()) {
+                            dismiss();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             };
             mCountDownTimer.start();
