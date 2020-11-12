@@ -156,8 +156,8 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         swipeRefresh.setRefreshing(false);
                         // 颠倒视频流
-                        mVideoAdapter.imgs = new int[]{R.mipmap.img_video_2, R.mipmap.img_video_1};
-                        mVideoAdapter.videos = new int[]{R.raw.video_2, R.raw.video_1};
+//                        mVideoAdapter.imgs = new int[]{R.mipmap.img_video_2, R.mipmap.img_video_1};
+                        mVideoAdapter.videos = new int[]{R.raw.video_3, R.raw.video_2, R.raw.video_1};
                         // 更新视频流
                         mVideoAdapter.notifyDataSetChanged();
                     }
@@ -173,16 +173,16 @@ public class MainActivity extends AppCompatActivity {
                     // for Show
                     case R.id.main_for_show:
                         // 颠倒视频流
-                        mVideoAdapter.imgs = new int[]{R.mipmap.img_video_2, R.mipmap.img_video_1};
-                        mVideoAdapter.videos = new int[]{R.raw.video_2, R.raw.video_1};
+//                        mVideoAdapter.imgs = new int[]{R.mipmap.img_video_2, R.mipmap.img_video_1};
+                        mVideoAdapter.videos = new int[]{R.raw.video_3, R.raw.video_2, R.raw.video_1};
                         // 更新视频流
                         mVideoAdapter.notifyDataSetChanged();
                         mFloatBall.floatBallShow();
                         break;
                     case R.id.main_for_you:
                         // 颠倒视频流
-                        mVideoAdapter.imgs = new int[]{R.mipmap.img_video_1, R.mipmap.img_video_2};
-                        mVideoAdapter.videos = new int[]{R.raw.video_1, R.raw.video_2};
+//                        mVideoAdapter.imgs = new int[]{R.mipmap.img_video_1, R.mipmap.img_video_2};
+                        mVideoAdapter.videos = new int[]{R.raw.video_1, R.raw.video_2, R.raw.video_3};
                         // 更新视频流
                         mVideoAdapter.notifyDataSetChanged();
                         mFloatBall.floatBallAdsorption();

@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
     <com.victoria.vshow.view.FullScreenVideoView
         android:id="@+id/video_view"
+        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clickable="false"
