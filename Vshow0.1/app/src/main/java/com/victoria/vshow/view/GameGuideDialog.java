@@ -2,9 +2,12 @@ package com.victoria.vshow.view;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Outline;
+import android.net.Uri;
 import android.os.CountDownTimer;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewOutlineProvider;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -56,9 +59,17 @@ public class GameGuideDialog extends Dialog {
         // 设置主视图
         setContentView(R.layout.game_minigame_guide_dialog);
         mVideoView = findViewById(R.id.game_guide_video_top);
-        mVideoView.setVisibility(View.GONE);
+//        mVideoView.setVisibility(View.GONE);
+        mVideoView.setOutlineProvider(new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View view, Outline outline) {
+                outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), 39);
+            }
+        });
+        mVideoView.setClipToOutline(true);
+        mVideoView.setVideoURI(Uri.parse(s1));
         mImage = findViewById(R.id.game_guide_image_top);
-
+        mImage.setVisibility(View.GONE);
         mPlayButton = findViewById(R.id.game_guide_play_game);
         mCountDownNum = findViewById(R.id.game_guide_countdown_num);
         mCloseButton = findViewById(R.id.game_guide_dialog_exit);

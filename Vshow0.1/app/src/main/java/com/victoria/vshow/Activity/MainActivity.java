@@ -23,10 +23,11 @@ import android.widget.VideoView;
 import com.victoria.vshow.Adapter.VideoAdapter;
 import com.victoria.vshow.R;
 import com.victoria.vshow.view.CloseDialog;
-import com.victoria.vshow.view.FloatBall;
 import com.victoria.vshow.view.GameGuideDialog;
 import com.victoria.vshow.viewpager.OnViewPagerListener;
 import com.victoria.vshow.viewpager.ViewPagerLayoutManager;
+import com.victoria.vshow.widget.FloatBall;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;

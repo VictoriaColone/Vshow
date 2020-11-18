@@ -126,7 +126,7 @@
 <!--                android:textStyle="bold"-->
 <!--                />-->
 <!--        </LinearLayout>-->
-        <com.victoria.vshow.view.FloatBall
+        <com.victoria.vshow.widget.FloatBall
             android:id="@+id/float_imgview"
             android:layout_width="@dimen/dimens_54dp"
             android:layout_height="@dimen/dimens_54dp"
