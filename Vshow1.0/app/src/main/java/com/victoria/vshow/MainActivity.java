@@ -4,7 +4,6 @@ package com.victoria.vshow;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -13,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
     //沉浸式处理
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

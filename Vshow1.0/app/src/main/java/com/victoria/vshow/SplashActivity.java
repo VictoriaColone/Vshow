@@ -9,8 +9,6 @@ import android.view.MotionEvent;
 import android.view.Window;
 import android.view.WindowManager;
 
-
-
 /**
  * @author Victoria Colone
  */
