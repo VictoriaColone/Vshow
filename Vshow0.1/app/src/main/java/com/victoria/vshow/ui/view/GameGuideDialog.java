@@ -1,4 +1,4 @@
-package com.victoria.vshow.view;
+package com.victoria.vshow.ui.view;
 
 import android.app.Dialog;
 import android.content.Context;

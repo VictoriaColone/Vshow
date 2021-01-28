@@ -1,4 +1,4 @@
-package com.victoria.vshow.Activity;
+package com.victoria.vshow.ui.Activity;
 
 import android.annotation.SuppressLint;
 import android.graphics.drawable.AnimationDrawable;
@@ -22,12 +22,11 @@ import android.widget.Toast;
 import android.widget.VideoView;
 import com.victoria.vshow.Adapter.VideoAdapter;
 import com.victoria.vshow.R;
-import com.victoria.vshow.view.CloseDialog;
-import com.victoria.vshow.view.GameGuideDialog;
+import com.victoria.vshow.ui.view.CloseDialog;
+import com.victoria.vshow.ui.view.GameGuideDialog;
 import com.victoria.vshow.viewpager.OnViewPagerListener;
 import com.victoria.vshow.viewpager.ViewPagerLayoutManager;
 import com.victoria.vshow.widget.FloatBall;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;

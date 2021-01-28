@@ -1,10 +1,13 @@
-package com.victoria.vshow.view;
+package com.victoria.vshow.ui.view;
 
 import android.content.Context;
 import android.media.MediaMetadataRetriever;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.widget.VideoView;
+
+import java.util.HashMap;
 
 /**
  * @Victor Corleone

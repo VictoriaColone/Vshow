@@ -1,4 +1,4 @@
-package com.victoria.vshow.Activity;
+package com.victoria.vshow.ui.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,12 +8,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.Window;
 import android.view.WindowManager;
-
 import com.victoria.vshow.R;
-import com.victoria.vshow.view.GameGuideDialog;
-
-import java.util.ArrayList;
-import java.util.Comparator;
 
 
 /**
@@ -54,7 +49,7 @@ public class SplashActivity extends Activity {
     //跳转主界面
     private void startMainActivity() {
         Log.d(TAG, " startMainActivity ");
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         //关闭启动页面
         finish();
