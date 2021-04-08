@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.qmuiteam:qmui:2.0.0-alpha04@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/93a2d9b6e00202f6b7ab6731e4527628/qmui-2.0.0-alpha04/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a4791ad4787411beea862c4f9ccf77ca/jetified-qmui-2.0.0-alpha04/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/93a2d9b6e00202f6b7ab6731e4527628/qmui-2.0.0-alpha04/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/93a2d9b6e00202f6b7ab6731e4527628/qmui-2.0.0-alpha04/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/93a2d9b6e00202f6b7ab6731e4527628/qmui-2.0.0-alpha04/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a4791ad4787411beea862c4f9ccf77ca/jetified-qmui-2.0.0-alpha04/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a4791ad4787411beea862c4f9ccf77ca/jetified-qmui-2.0.0-alpha04/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a4791ad4787411beea862c4f9ccf77ca/jetified-qmui-2.0.0-alpha04/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.qmuiteam/qmui/2.0.0-alpha04/537d52422050a5b5072606888654530ccbdd6705/qmui-2.0.0-alpha04-javadoc.jar!/" />

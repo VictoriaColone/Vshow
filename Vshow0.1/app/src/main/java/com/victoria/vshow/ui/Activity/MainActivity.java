@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -20,6 +21,8 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.VideoView;
+
+import com.google.android.material.navigation.NavigationView;
 import com.victoria.vshow.Adapter.VideoAdapter;
 import com.victoria.vshow.R;
 import com.victoria.vshow.ui.view.CloseDialog;
@@ -27,6 +30,7 @@ import com.victoria.vshow.ui.view.GameGuideDialog;
 import com.victoria.vshow.viewpager.OnViewPagerListener;
 import com.victoria.vshow.viewpager.ViewPagerLayoutManager;
 import com.victoria.vshow.widget.FloatBall;
+import com.victoria.vshow.widget.LightningView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
     private FloatBall mFloatBall;
     // 帧动画地球仪
     private ImageView mEarthFrame;
+    // 闪光按钮
+    private LightningView lightningView;
+    // 导航栏
+    private NavigationView navigationView;
 
 
 
@@ -64,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recycler);
         mFloatBall = findViewById(R.id.float_imgview);
         mEarthFrame = findViewById(R.id.earth_frame);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerLayout = navigationView.getHeaderView(0);
+        lightningView = headerLayout.findViewById(R.id.lightiningButton);
         initView();
         initListener();
     }
@@ -173,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                     // for Show
                     case R.id.main_for_show:
                         // 颠倒视频流
-//                        mVideoAdapter.imgs = new int[]{R.mipmap.img_video_2, R.mipmap.img_video_1};
+                        // mVideoAdapter.imgs = new int[]{R.mipmap.img_video_2, R.mipmap.img_video_1};
                         mVideoAdapter.videos = new int[]{R.raw.video_3, R.raw.video_2, R.raw.video_1};
                         // 更新视频流
                         mVideoAdapter.notifyDataSetChanged();
@@ -181,13 +192,30 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.main_for_you:
                         // 颠倒视频流
-//                        mVideoAdapter.imgs = new int[]{R.mipmap.img_video_1, R.mipmap.img_video_2};
+                        //  mVideoAdapter.imgs = new int[]{R.mipmap.img_video_1, R.mipmap.img_video_2};
                         mVideoAdapter.videos = new int[]{R.raw.video_1, R.raw.video_2, R.raw.video_3};
                         // 更新视频流
                         mVideoAdapter.notifyDataSetChanged();
                         mFloatBall.floatBallAdsorption();
                         break;
                 }
+            }
+        });
+
+        // 登录按钮，跳转半屏布局
+        lightningView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "点我干嘛", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        // 导航页菜单栏"设置"按钮点击事件
+        navigationView.getMenu().getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                Toast.makeText(MainActivity.this, "点我干嘛", Toast.LENGTH_LONG).show();
+                return true;
             }
         });
     }
@@ -320,10 +348,12 @@ public class MainActivity extends AppCompatActivity {
 
         return (AnimationDrawable) earthFrame.getDrawable();
     }
+
     @Override
     public void onBackPressed(){
          CloseDialog mDialog = new CloseDialog(this);
             mDialog.show();
     }
+
 }
 
