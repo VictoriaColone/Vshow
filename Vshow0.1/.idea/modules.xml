@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Vshow.iml" filepath="$PROJECT_DIR$/.idea/modules/Vshow.iml" group="Vshow" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Vshow-Vshow0.1-Vshow.iml" filepath="$PROJECT_DIR$/.idea/modules/Vshow-Vshow0.1-Vshow.iml" group="Vshow" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Vshow-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Vshow-app.iml" group="Vshow/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Vshow0.1-Vshow.iml" filepath="$PROJECT_DIR$/.idea/modules/Vshow0.1-Vshow.iml" group="Vshow" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Vshow0.1-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Vshow0.1-app.iml" group="Vshow/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Vshow/app" />
     </modules>
   </component>
