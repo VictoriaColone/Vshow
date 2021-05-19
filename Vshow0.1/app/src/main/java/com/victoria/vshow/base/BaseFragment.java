@@ -1,6 +1,7 @@
 package com.victoria.vshow.base;
 
+/**
+ * fragment基类
+ */
 public class BaseFragment {
-    private static final String Abc = "123";
-    private static final String dfadsffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff = "123";
 }
