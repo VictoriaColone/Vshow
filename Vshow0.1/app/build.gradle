@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
+    // gradle 6.1.1发神经，非要老子指定个ndk版本号
+    ndkVersion '22.1.7171670'
     defaultConfig {
         applicationId "com.victoria.vshow"
         minSdkVersion 21

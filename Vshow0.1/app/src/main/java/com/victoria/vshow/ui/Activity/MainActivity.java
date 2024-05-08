@@ -27,6 +27,7 @@ import com.victoria.vshow.Adapter.VideoAdapter;
 import com.victoria.vshow.R;
 import com.victoria.vshow.ui.view.CloseDialog;
 import com.victoria.vshow.ui.view.GameGuideDialog;
+import com.victoria.vshow.utils.TestUtils;
 import com.victoria.vshow.viewpager.OnViewPagerListener;
 import com.victoria.vshow.viewpager.ViewPagerLayoutManager;
 import com.victoria.vshow.widget.FloatBall;
@@ -207,6 +208,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "点我干嘛", Toast.LENGTH_LONG).show();
+                TestUtils.printPackages(TestUtils.getInstalledPackages(MainActivity.this), "installed");
+                TestUtils.printPackages(TestUtils.getAllLauncherIconPackages(MainActivity.this), "launcherIcon");
             }
         });
 
